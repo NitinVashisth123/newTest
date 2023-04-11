@@ -1,0 +1,73 @@
+<aura:component implements="force:appHostable,force:hasSObjectName,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" Controller="AccConTaskAura" access="global" >
+         
+    <aura:attribute name="accList" type="Account"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="Acclist2"  type="Account"/>
+    <h2 id="element-with-table-label" class="slds-text-heading_medium slds-m-bottom_xx-small">Account Details</h2>
+<h3 id="other-element-with-table-label" class="slds-text-title slds-m-bottom_small">Creating
+<code>Related Contacts</code> and Tasks</h3><br></br>
+    
+   
+    
+     <table class="slds-table slds-table_cell-buffer slds-table_bordered" 
+               aria-labelledby="element-with-table-label other-element-with-table-label">
+    
+<thead>
+<tr class="slds-line-height_reset">
+<th class="" scope="col">
+<div class="slds-truncate" >Account Name</div>
+</th>
+<th class="" scope="col">
+<div class="slds-truncate">Account Id</div>
+</th>
+<th class="" scope="col">
+<div class="slds-truncate" >Phone</div>
+</th>
+<th class="" scope="col">
+<div class="slds-truncate" >Create Contact</div>
+</th>
+<th class="" scope="col">
+<div class="slds-truncate" >Create Task</div>
+</th>
+<th class="" scope="col">
+       <div class="slds-truncate" >Delete Account</div>
+</th>
+    
+</tr>
+</thead>
+<tbody>
+
+ <aura:iteration items="{!v.accList}" var="acc"> <!-- iteration account record.-->
+                        <tr class="slds-hint-parent">
+                            <th scope="row">
+                                <div class="slds-truncate" ><a href="{!'https://astreaitservices46-dev-ed.lightning.force.com/lightning/r/Account/'+ acc.Id + '/view'}" target="_blank">{!acc.Name }</a></div>
+                            </th>
+                            <td>
+                                <div class="slds-truncate" >{!acc.Id}</div>
+                            </td>
+                            <td>
+                                <div class="slds-truncate" >{!acc.Phone}</div>
+                            </td>
+                             <td>
+                               
+                 <div class="slds-truncate" >  <lightning:button name="{!acc.Id}" value="{!acc.Name}" variant="brand" 
+                                          label="Create" onclick="{!c.createCon}"/></div>
+                       </td>
+                            <td>
+                             <div class="slds-truncate" ><lightning:button name="{!acc.Id}" value="{!acc.Name}" variant="brand" 
+                                          label="Create" onclick="{!c.createTask}"/></div>
+                              
+                   </td>
+               <td>
+                  
+                        <div class="slds-truncate" ><lightning:button name="{!acc.Id}" value="{!acc.Name}" variant="destructive" 
+                                          label="Delete" onclick="{!c.deleteAcc}"/></div>
+                   
+        
+                     </td>
+                           </tr>
+                    </aura:iteration>
+
+</tbody>
+</table>
+</aura:component>
