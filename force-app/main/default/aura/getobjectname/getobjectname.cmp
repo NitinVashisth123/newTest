@@ -1,0 +1,7 @@
+<aura:component implements="force:hasSObjectName,flexipage:availableForAllPageTypes">
+  
+   
+    
+    <div class="slds-truncate" >  <lightning:button  value="{obj}" variant="brand" 
+                                          label="Create" onclick="{!c.createAccount}"/></div>
+</aura:component>

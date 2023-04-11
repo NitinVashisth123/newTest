@@ -1,0 +1,66 @@
+<aura:component controller="getopprecord" implements= "force:appHostable,forceCommunity:availableForAllPageTypes,flexipage:availableForAllPageTypes" access="global">
+ <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="stage" value="{!setParams}" action="{!c.stage}" />
+   <!-- calling doInit method in Component Controller -->
+                    
+       <aura:attribute name="recordId" type="String" />            
+    <aura:attribute name="oppLst" type="opportunity[]"/> <!-- create Array type Account variable-->
+     
+
+  
+    <article class="slds-card">
+      <div class="slds-card__header slds-grid">
+        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+          
+          <div class="slds-media__body">
+            <h2>
+              <a href="javascript:void(0);" class="slds-card__header-link slds-truncate" title="opportunity">
+                <span class="slds-text-heading_small">Opportunity</span>
+              </a>
+            </h2>
+          </div>
+        </header>
+       </div>
+        
+      <div class="slds-card__body">
+        <table class="slds-table slds-table_bordered slds-no-row-hover slds-table_cell-buffer">
+          <thead>
+            <tr class="slds-text-title_caps">
+              
+                <th scope="col">
+                <div class="slds-truncate" title="stage">stage</div>
+              </th>     
+
+                 
+              <th scope="col">
+                <div class="slds-truncate" title="Name">Name</div>
+              </th>
+              <th scope="col">
+                <div class="slds-truncate" title="Amount">Amount</div>
+              </th>
+             
+            </tr>
+          </thead>
+          <tbody>
+              <aura:iteration items="{!v.oppLst}" var="opp"> <!-- iteration account record.-->
+                  <tr class="slds-hint-parent">
+                 <lightning:button label="close" onclick="{!c.stage}"/>
+               
+    
+
+
+                     <td>
+                          <div class="slds-truncate" title="Name">{!opp.Name}</div>
+                      </td>
+                       <td>
+                          <div class="slds-truncate" title="Amount">{!opp.Amount}</div>
+                      </td>
+                                      </tr>                     
+              </aura:iteration>
+          </tbody>
+        </table>
+      </div>
+      <footer class="slds-card__footer"><a href="javascript:void(0);"><!--View All <span class="slds-assistive-text">entity type</span>--></a></footer>
+    </article>
+   
+</aura:component>

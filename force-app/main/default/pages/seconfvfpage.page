@@ -1,0 +1,13 @@
+<apex:page standardcontroller="account" renderAs="PDF">
+     <apex:form >
+        <apex:pageBlock title="account List" >
+             <!-- accounts List -->
+<apex:pageBlockTable value="{! account }" var="at">
+    <apex:column value="{!at.Name }"/>
+    <apex:column value="{!at.AccountNumber }"/>
+        <apex:column value="{!at.AnnualRevenue }"/>
+</apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+    
+</apex:page>

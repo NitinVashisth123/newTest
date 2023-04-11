@@ -1,0 +1,34 @@
+<aura:component controller="DisplayListofRecordsUsingDataTable">
+    <aura:attribute name="mycolumn" type="Object[]"/>
+    <aura:attribute type="Account[]" name="accList"/>
+    <aura:handler name="init" value="{!this}" action="{!c.fetchAccount}"/>
+    <ltng:require styles="/resource/SLDS0122/assets/styles/salesforce-lightning-design-system.min.css"/>`<aura:attribute name="newAccount" type="Account"
+     default="{ 'sobjectType': 'Account',
+                     'Name': '',
+                   }"/>
+    
+    <div>
+      <lightning:datatable data="{!v.accList }" 
+                         columns="{!v.mycolumn }" 
+                         keyField="id" 
+                          hideCheckboxColumn="true"/>
+        <div>
+         <form>
+      <ui:inputText aura:id="AccountName" label="New Account Name"
+                    class="slds-input"
+                    labelClass="slds-form-element__label"
+                    value="{!v.newAccount.Name}"
+                    required="true"/>
+
+<ui:button label="Submit" 
+                   class="slds-button slds-button--neutral"
+                   labelClass="label"
+                   press="{!c.createAccount}"/>
+          <ui:button label="Cancel" 
+                   class="slds-button slds-button--neutral"
+                   labelClass="label" press="{!c.Close}"/>
+</form></div>
+       
+    </div>
+  
+</aura:component>

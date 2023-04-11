@@ -1,0 +1,80 @@
+<apex:page controller="accconpdf" renderAs="PDF"  applyHtmlTag="false" showHeader="false">
+    <html>
+        <head>
+            <style>
+                *{
+                box-sizing:border-box;
+                }
+                .heading
+                {
+                font-weight:bold;
+                }
+                .heading--main
+                {
+                font-size:36px; 
+                }
+                .box--half
+                {float:left;
+                width:50%;
+                }
+                 }
+                .box--full
+                {float:left;
+                width:100%;
+                }
+                
+                table{
+                border-collapse:collapse;
+                margin-top:25px;
+                width:100%
+                
+                }
+                th{
+                background-color:#92d5f0;
+                font-align:left;
+                font-size:14px;
+                font-weight:bold;
+                padding:5px;
+                }
+                
+                td{
+                font-size:12px;
+                padding:5px;
+                text-align:left;
+                width:33%;
+                }
+                
+            </style>
+        </head>
+    <body>
+        <center>
+            <H1 class="heading heading--main">
+                 ACCOUNT'S DETAIL PDF
+            </H1>
+        </center>
+        <div class="box--full">
+            <h2 class="heading heading--sub">
+                
+           ACCOUNT DETAILS:
+            </h2>
+            <table>
+                <tr>
+                    <th> NAME</th>
+                     <th> PHONE</th>
+                    <th> INDUSTRY</th>
+                    
+                </tr>
+                <apex:repeat value="{!account}" var="acc">
+                   <tr>
+                    <td>{!acc.name}</td>
+                    <td>{!acc.phone}</td>
+                       <td>{!acc.industry}</td>
+                   </tr>
+                </apex:repeat>
+            </table>
+        </div>
+        
+        </body>
+    </html>
+    
+</apex:page>

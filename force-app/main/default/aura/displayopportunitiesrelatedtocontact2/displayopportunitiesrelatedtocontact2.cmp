@@ -1,0 +1,43 @@
+<aura:component controller = "getcontactopportunity" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+ <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="opportunityList" type="opportunity[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.myAction}" />
+    
+    <article class="slds-card">
+     
+  
+      <div class="slds-card__body">
+  <table class="slds-table slds-table_bordered slds-no-row-hover slds-table_cell-buffer">
+                <thead>
+                    <tr class="slds-text-title–caps">
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title=" Contact Name">Name</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Stage Name">StageName</div>
+                        </th>
+                        <th class="" scope="col">
+                            <div class="slds-truncate" title="Contact Amount">Amount</div>
+                        </th>
+                    </tr>
+                </thead>
+    <tbody>
+    <aura:iteration  items="{!v.opportunityList}" var="opp">
+        <tr>
+                        <td>
+                            <div class="slds-truncate" title="Contact Name">{!opp.Name}</div>  
+                        </td>
+                        <td>
+                            <div class="slds-truncate" title="Stage Name">{!opp.stageName}</div>  
+                        </td>
+      <td>
+                            <div class="slds-truncate" title="Contact Amount">{!opp.Amount}</div>  
+                        </td>
+                    </tr>
+    </aura:iteration>
+</tbody>
+    </table>
+    </div>
+        <footer class="slds-card__footer"><a href="javascript:void(0);"><!--View All <span class="slds-assistive-text">entity type</span>--></a></footer>
+    </article>
+</aura:component>

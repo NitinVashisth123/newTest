@@ -1,0 +1,27 @@
+<apex:page standardController="contact" >
+<head>
+    <meta charset ="utf=8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <title>Quick start : visual force</title>
+    <!--Import the design system style sheet-->
+    <apex:slds />
+    </head>
+    <body>
+        <apex:form >
+        <apex:pageBlock title="New contact">
+            <!--buttons-->
+            <apex:pageBlockButtons >
+            <apex:commandButton action="{!save}" value="save" />
+                
+            </apex:pageBlockButtons>
+            <!--input form-->
+             <apex:pageBlockSection columns="1">
+                 <apex:inputfield value="{!contact.firstname}"/>
+                   <apex:inputfield value="{!contact.lastname}"/>
+                   <apex:inputfield value="{!contact.Email}"/>
+            </apex:pageBlockSection>
+            </apex:pageBlock>
+        </apex:form>
+        
+    </body>
+</apex:page>

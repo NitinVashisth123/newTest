@@ -1,0 +1,14 @@
+<apex:page controller="projectapex" sidebar="false">
+  
+     <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection >
+                 <apex:inputText value="{!Name}" label="Name" />
+                
+                  <apex:inputText value="{!Phone}" label="Phone" />
+                 <apex:inputText value="{!Email}" label="Email" />
+                  <apex:commandButton value="Save" action="{!projectapexmethod}"/>
+             </apex:pageBlockSection>
+       </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,8 @@
+<aura:component controller = "getcontactopportunity" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+ <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="opportunityList" type="opportunity[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.myAction}" />
+    <aura:iteration  items="{!v.opportunityList}" var="opp">
+        Contact Name = {!opp.Name} <br/>
+    </aura:iteration>
+</aura:component>
