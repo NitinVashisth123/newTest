@@ -5,6 +5,7 @@ public class ContactAndLeadSearch {
          List<List<sobject>> records = [FIND :s IN ALL FIELDS RETURNING Contact(Name,Phone),LEAD(Name,Company)];
          system.debug(records);
         return records;
+        //asdf
      }
     
 }
